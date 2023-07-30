@@ -31,7 +31,17 @@ def save_to_excel(contents, file_name):
     sheet = workbook.active
 
     for idx, content in enumerate(contents, start=1):
+        soup = BeautifulSoup(content, "html.parser")
+
+        # Find the specific div element and extract its text
+        div_element = soup.find("div", class_="sm:text-sm md:text-2xl lg:text-5xl font-bold")
+        if div_element:
+            div_text = div_element.text.strip()
+        else:
+            div_text = "No text found in the div element."
+
         sheet.cell(row=idx, column=1, value=content)
+        sheet.cell(row=idx, column=2, value=div_text)
 
     workbook.save(file_name)
     print("Data berhasil disimpan : ", file_name)
@@ -50,6 +60,6 @@ for url in urls:
         isi_content.append(content)
 
 if isi_content:
-    save_to_excel(isi_content, "coba lgi deh.xlsx")
+    save_to_excel(isi_content, "coba lgi zzzz.xlsx")
 else:
     print("Gagal scraping.")
