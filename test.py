@@ -14,6 +14,6 @@ if div_elements:
                 text_in_a = a_element.text.strip()
                 print(text_in_a)
         else:
-            print("Elemen <a> tidak ditemukan dalam elemen <div>.")
+            print("tidak ada tag a dalam div")
 else:
-    print("Elemen <div> tidak ditemukan.")
+    print("tidak ada tag div")

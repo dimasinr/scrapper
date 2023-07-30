@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 
 from checkurl import geturl
 
-def scraping_data(url):
+def scraping(url):
     try:
         response = requests.get(url)
 
@@ -26,7 +26,7 @@ def scraping_data(url):
         print("Error : ", e)
         return None
 
-def save_to_excel(contents, file_name):
+def excelsave(contents, file_name):
     workbook = openpyxl.Workbook()
     sheet = workbook.active
 
@@ -55,11 +55,11 @@ print(urls)
 
 isi_content = []
 for url in urls:
-    content = scraping_data(url)
+    content = scraping(url)
     if content:
         isi_content.append(content)
 
 if isi_content:
-    save_to_excel(isi_content, "coba lgi zzzz.xlsx")
+    excelsave(isi_content, "coba lgi zzzz.xlsx")
 else:
     print("Gagal scraping.")
