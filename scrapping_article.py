@@ -63,7 +63,7 @@ def excelsave(contents, file_name):
     print("Data berhasil disimpan : ", file_name)
 
 urls = geturl()
-print(urls)
+# print(urls)
 
 isi_content = []
 for url in urls:
@@ -72,6 +72,6 @@ for url in urls:
         isi_content.append(content)
 
 if isi_content:
-    excelsave(isi_content, "coba lgi wawawa.xlsx")
+    excelsave(isi_content, "final.xlsx")
 else:
     print("Gagal scraping.")
