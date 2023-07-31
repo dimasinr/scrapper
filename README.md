@@ -4,8 +4,9 @@ List Install
 - BeautySoup
 - openpyxl
 - requests
+- selenium
 
 How To Use
 py scraping_article.py
-
-DONEEEEEE HAHA
+py scraping_panel.py -> untuk harga
+DONEEEEEE bg
