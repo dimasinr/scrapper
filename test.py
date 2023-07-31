@@ -6,6 +6,7 @@ response = requests.get(url)
 soup = BeautifulSoup(response.content, "html.parser")
 
 div_elements = soup.select("div.mb-5.font-bold.text-xl.text-justify")
+# div_elements = soup.select("div.mb-5.font-bold.text-xl.text-justify")
 if div_elements:
     for div_element in div_elements:
         a_elements = div_element.find_all("a")

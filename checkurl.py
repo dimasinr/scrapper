@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 def geturl():
     all_urls = []
 
-    for i in range(1, 11):
+    for i in range(1, 2):
         url = f"https://badanpangan.go.id/berita?page={i}"
         response = requests.get(url)
         soup = BeautifulSoup(response.content, "html.parser")

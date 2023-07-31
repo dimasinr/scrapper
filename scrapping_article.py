@@ -38,6 +38,10 @@ def imageregx(html_content):
 
     return None
 
+def cleanparser(html_text):
+    clean_html = re.sub(r'(?<=>)\"(?=<)', '', html_text)
+    return clean_html
+
 def excelsave(contents, file_name):
     workbook = openpyxl.Workbook()
     sheet = workbook.active
@@ -54,10 +58,11 @@ def excelsave(contents, file_name):
 
         image_url = imageregx(content)
 
-        sheet.cell(row=idx, column=1, value=content)
+        sheet.cell(row=idx, column=1, value=cleanparser(content))
         sheet.cell(row=idx, column=2, value=title_text)
         sheet.cell(row=idx, column=3, value=image_url)
         print(f"judul {title_text}", f"gambar : {image_url}")
+        print(cleanparser(content))
 
     workbook.save(file_name)
     print("Data berhasil disimpan : ", file_name)
@@ -72,6 +77,6 @@ for url in urls:
         isi_content.append(content)
 
 if isi_content:
-    excelsave(isi_content, "final.xlsx")
+    excelsave(isi_content, "finalssss.xlsx")
 else:
     print("Gagal scraping.")
