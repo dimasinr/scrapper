@@ -1,6 +1,6 @@
 import re
 import requests
-import openpyxl
+# import openpyxl
 from bs4 import BeautifulSoup
 
 from checkurl import geturl
@@ -43,8 +43,8 @@ def cleanparser(html_text):
     return clean_html
 
 def excelsave(contents, file_name):
-    workbook = openpyxl.Workbook()
-    sheet = workbook.active
+    # workbook = openpyxl.Workbook()
+    # sheet = workbook.active
 
     for idx, content in enumerate(contents, start=1):
         soup = BeautifulSoup(content, "html.parser")
@@ -58,13 +58,13 @@ def excelsave(contents, file_name):
 
         image_url = imageregx(content)
 
-        sheet.cell(row=idx, column=1, value=cleanparser(content))
-        sheet.cell(row=idx, column=2, value=title_text)
-        sheet.cell(row=idx, column=3, value=image_url)
+        # sheet.cell(row=idx, column=1, value=cleanparser(content))
+        # sheet.cell(row=idx, column=2, value=title_text)
+        # sheet.cell(row=idx, column=3, value=image_url)
         print(f"judul {title_text}", f"gambar : {image_url}")
-        print(cleanparser(content))
+        # print(cleanparser(content))
 
-    workbook.save(file_name)
+    # workbook.save(file_name)
     print("Data berhasil disimpan : ", file_name)
 
 urls = geturl()
@@ -77,6 +77,7 @@ for url in urls:
         isi_content.append(content)
 
 if isi_content:
-    excelsave(isi_content, "finalssss.xlsx")
+    print(isi_content)
+    # excelsave(isi_content, "finalssss.xlsx")
 else:
     print("Gagal scraping.")

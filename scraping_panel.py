@@ -3,7 +3,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import openpyxl
+# import openpyxl
 
 def scrape_panel_data(url):
     try:
@@ -32,19 +32,20 @@ def scrape_panel_data(url):
         print("An error occurred:", str(e))
         return []
 
-def excellsave(data_list, file_name):
-    workbook = openpyxl.Workbook()
-    sheet = workbook.active
+# def excellsave(data_list, file_name):
+#     workbook = openpyxl.Workbook()
+#     sheet = workbook.active
 
-    # Add headers
-    sheet.append(["Title", "Price", "Unit"])
+#     # Add headers
+#     sheet.append(["Title", "Price", "Unit"])
 
-    for data in data_list:
-        sheet.append(data)
+#     for data in data_list:
+#         sheet.append(data)
 
-    workbook.save(file_name)
-    print("Berhasil get data", file_name)
+#     workbook.save(file_name)
+#     print("Berhasil get data", file_name)
 
 url = "https://panelharga.badanpangan.go.id/"
 data_list = scrape_panel_data(url)
-excellsave(data_list, "haragagaga.xlsx")
+print(data_list)
+# excellsave(data_list, "haragagaga.xlsx")
